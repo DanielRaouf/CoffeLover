@@ -16,8 +16,8 @@ class VenueItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      imageCalculatedWidth: 0,
-      imageCalculatedHeight: 0,
+      imageCalculatedWidth: width-34,
+      imageCalculatedHeight: height,
     };
   }
 
