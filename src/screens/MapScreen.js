@@ -1,17 +1,32 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
 import {StyleSheet, Text, View, SafeAreaView} from 'react-native';
+import MapView, {Marker} from 'react-native-maps';
 import {getVenues} from '../services/Api';
 import VenuesList from '../components/VenuesList';
 import * as Colors from '../utils/Colors';
 import HeaderWithBack from '../components/HeaderWithBack';
 
-class HomeScreen extends Component {
+class MapScreen extends Component {
+
   renderHeader() {
-    return <HeaderWithBack showBack={false} title={'Venues'}/>;
+    return <HeaderWithBack navigation={this.props.navigation} title={'Map'} showBack={true} />
   }
   renderBody() {
-    return <VenuesList navigation={this.props.navigation} />;
+    const coordinates = this.props.navigation.getParam('coordinates')
+    const title = this.props.navigation.getParam('title')
+    return <MapView
+    initialRegion={{
+      ...coordinates,
+      latitudeDelta: 0.0922,
+      longitudeDelta: 0.0421,
+    }}
+    style={{flex: 1}}
+  >
+   <Marker
+      coordinate={coordinates}
+      title={title}
+    />
+  </MapView>
   }
 
   render() {
@@ -90,6 +105,5 @@ const styles = StyleSheet.create({
   },
 });
 
-const mapDispatchToProps = dispatch => ({});
 
-export {HomeScreen};
+export {MapScreen};

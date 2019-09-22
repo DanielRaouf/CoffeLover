@@ -52,6 +52,10 @@ class VenueItem extends Component {
     Linking.openURL(`tel:${number}`);
   }
 
+  showOnMap(coordinates, title){
+    this.props.navigation.navigate('Map', {coordinates, title})
+  }
+
   render() {
     const {item, navigation} = this.props;
     return (
@@ -107,7 +111,7 @@ class VenueItem extends Component {
           <View style={styles.fourthRow}>
             <TouchableOpacity
               style={styles.btnContainer}
-              onPress={() => this.callNumber(item.phone)}>
+              onPress={() => this.showOnMap(item.coordinates, item.name)}>
               <Text style={styles.btnText}>Show On Map</Text>
             </TouchableOpacity>
             <View style={styles.btnContainer}>
