@@ -12,7 +12,7 @@ class VenuesList extends Component {
   }
 
   renderItem({item}) {
-    return <VenueItem item={item} navigation={this.props.navigation} />;
+    return <VenueItem item={item} showDetailsBtn={true} navigation={this.props.navigation} />;
   }
 
   render() {
@@ -21,6 +21,7 @@ class VenuesList extends Component {
     return (
       <View style={container}>
         <FlatList
+        // ListHeaderComponent={this.renderItem}
           data={venues}
           renderItem={this.renderItem.bind(this)}
           keyExtractor={(item, index) => `${index}`}
@@ -40,10 +41,9 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = ({venues}, props) => {
-  const {list, hasNext, isLoading} = venues;
+  const {list, isLoading} = venues;
   return {
     venues: list,
-    hasNext: hasNext,
     isLoading: isLoading,
   };
 };

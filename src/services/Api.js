@@ -6,4 +6,10 @@ const getVenues = () => {
   return [];
 };
 
-export {getVenues};
+const getReviews = () => {
+  const reviews = require('../data/Reviews.json')
+
+  return reviews.reviews;
+};
+
+export {getVenues,getReviews};

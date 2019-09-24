@@ -1,6 +1,5 @@
 import {call, put, takeLatest} from 'redux-saga/effects';
 import * as types from '../utils/Consts';
-import CurrenciesService from '../services/CurrenciesService';
 import Venue from '../models/Venue';
 import { getVenues } from '../services/Api';
 

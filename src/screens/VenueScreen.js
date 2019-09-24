@@ -1,5 +1,10 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import * as actions from '../Actions';
+import ReviewItem from '../components/ReviewItem';
+import * as Colors from '../utils/Colors';
+import HeaderWithBack from '../components/HeaderWithBack';
+import VenueItem from '../components/VenueItem';
 import {
   StyleSheet,
   Text,
@@ -8,20 +13,42 @@ import {
   FlatList,
   TouchableOpacity,
   Image,
+  ScrollView
 } from 'react-native';
 
+
 class VenueScreen extends Component {
+
+  componentDidMount() {
+    const {fetchReviews} = this.props;
+    fetchReviews();
+  }
+
   renderHeader() {
     const {header} = styles;
-    return (
-      <View>
-        <Text style={header}>Venue</Text>
-      </View>
-    );
+      return <HeaderWithBack navigation={this.props.navigation} showBack={true} title={'Venue'}/>;
+  }
+  renderReview({item}) {
+    return <ReviewItem item={item} navigation={this.props.navigation} />;
+  }
+  renderItem(item) {
+   return <VenueItem item={item} navigation={this.props.navigation} />;
   }
   renderBody() {
+    const {reviews, isLoading} = this.props;
+    const venue = this.props.navigation.getParam('item');
     const {header} = styles;
-    return <View />;
+    return(
+        <FlatList
+          ListHeaderComponent={this.renderItem(venue)}
+          data={reviews}
+          renderItem={this.renderReview.bind(this)}
+          keyExtractor={(item, index) => `${index}`}
+          windowSize={2}
+          style={styles.list}
+        />
+
+    );
   }
 
   render() {
@@ -38,66 +65,26 @@ class VenueScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-
+    backgroundColor: Colors.BACKGROUND,
     paddingTop: 10,
   },
-  header: {
-    textAlign: 'center',
-    fontSize: 25,
-  },
-  topBarItem: {
-    width: 40,
-    margin: 10,
-  },
-  screenTitleStyle: {
-    color: 'white',
-    fontSize: 16,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    flex: 1,
-  },
-  backButton: {
-    flex: 1,
-    height: 40,
-    width: 40,
-    paddingTop: 10,
-    paddingLeft: 20,
-  },
-  noDataOnTabContainer: {
-    marginTop: 50,
-    backgroundColor: 'transparent',
-  },
-  spinnerStyle: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  separatorStyle: {
-    height: 1,
-    flex: 1,
-    marginTop: 6,
-    backgroundColor: 'rgb(26, 33, 42)',
-  },
-  textFieldStyle: {
-    color: 'white',
-    fontSize: 16,
-    backgroundColor: 'rgb(28, 42, 58)',
-    height: 38,
-    marginTop: 16,
-    marginRight: 17,
-    marginLeft: 17,
-    borderRadius: 19,
-    paddingRight: 10,
-    paddingLeft: 10,
+  list: {
+    marginLeft:10,
   },
 });
-
-const mapStateToProps = ({currencies}, props) => {
+const mapStateToProps = ({reviews}, props) => {
+  const {list, isLoading} = reviews;
   return {
-    isLoading: currencies.isLoading,
+    reviews: list,
+    isLoading: isLoading,
   };
 };
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = dispatch => ({
+  fetchReviews: () => dispatch(actions.fetchReviews()),
+});
 
-export {VenueScreen};
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(VenueScreen);

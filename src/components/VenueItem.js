@@ -57,7 +57,7 @@ class VenueItem extends Component {
   }
 
   render() {
-    const {item, navigation} = this.props;
+    const {item, navigation,showDetailsBtn} = this.props;
     return (
       <TouchableWithoutFeedback
         onPress={() => navigation.navigate('Venue', {item: item})}>
@@ -114,27 +114,38 @@ class VenueItem extends Component {
               onPress={() => this.showOnMap(item.coordinates, item.name)}>
               <Text style={styles.btnText}>Show On Map</Text>
             </TouchableOpacity>
+            { !showDetailsBtn &&
+            <View style={styles.secondContainer}>
+
+            <View
+                style={styles.addressContainer}>
+                <Text style={styles.addressText}>Address :</Text>
+                <Text style={styles.addressText}>
+                  {item.location.display_address[0]}
+                </Text>
+              </View>
+            <View
+                style={styles.addressContainer}>
+                <Text style={styles.addressText}>City :</Text>
+                <Text style={styles.addressText}>
+                  {item.location.display_address[1]}
+                </Text>
+              </View>
+              <View
+                style={styles.addressContainer}>
+                <Text style={styles.addressText}>Country :</Text>
+                <Text style={styles.addressText}>
+                  {item.location.display_address[2]}
+                </Text>
+              </View>
+              </View> }
+            { showDetailsBtn &&
             <View style={styles.btnContainer}>
               <Text style={styles.btnText}>More Details</Text>
             </View>
+
+            }
           </View>
-          {/* <View
-                style={{flexDirection: 'row', marginLeft: 10, marginTop: 5}}>
-                <Text>City :</Text>
-                <Text style={{textAlign: 'center'}}>
-                  {item.location.display_address[1]}
-                <Text>Address :</Text>
-                <Text style={{textAlign: 'right'}}>
-                  {item.location.display_address[0]}
-                </Text>
-                </Text>
-              <View
-                style={{flexDirection: 'row', marginLeft: 10, marginTop: 5}}>
-                <Text>Country :</Text>
-                <Text style={{textAlign: 'center'}}>
-                  {item.location.display_address[2]}
-                </Text>
-              </View> */}
         </View>
       </TouchableWithoutFeedback>
     );
@@ -150,6 +161,22 @@ const styles = {
     paddingLeft: 7,
     borderBottomWidth: 1,
     borderColor: Colors.WARM_GREY,
+  },
+  secondContainer: {
+    flexDirection: 'column',
+    marginLeft: -50,
+    paddingLeft: -20,
+  },
+  addressContainer: {
+    flexDirection: 'row',
+    paddingLeft: -20,
+    marginLeft: -50,
+    marginTop: 5
+  },
+  addressText: {
+    fontSize: 12,
+    fontWeight: 'bold',
+    color: Colors.WHITE,
   },
   titleText: {
     fontSize: 18,
