@@ -6,11 +6,14 @@ import {
   TouchableWithoutFeedback,
   Dimensions,
   Linking,
+  NativeModules
 } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import {Rating, AirbnbRating} from 'react-native-ratings';
 import * as Colors from '../utils/Colors';
 const {width, height} = Dimensions.get('window');
+
+const { WebViewWithText } = NativeModules;
 
 class VenueItem extends Component {
   constructor(props) {
@@ -54,6 +57,10 @@ class VenueItem extends Component {
 
   showOnMap(coordinates, title){
     this.props.navigation.navigate('Map', {coordinates, title})
+  }
+
+  launchNativeModuleWith({url, name}){
+    WebViewWithText.loadUrl(url, name)
   }
 
   render() {
@@ -106,6 +113,11 @@ class VenueItem extends Component {
               ]}>
               {item.isClosed ? 'Closed Now' : 'Open Now'}
             </Text>
+            <TouchableOpacity
+              style={[styles.btnContainer, {marginLeft: 20}]}
+              onPress={() => this.launchNativeModuleWith(item)}>
+              <Text style={styles.btnText}>Native Module</Text>
+            </TouchableOpacity>
           </View>
 
           <View style={styles.fourthRow}>

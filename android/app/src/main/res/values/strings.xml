@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">CoffeeLover</string>
+    <string name="title_activity_web_view_with_text">WebViewWithTextActivity</string>
+    <string name="native_module_title">Native Module</string>
 </resources>
