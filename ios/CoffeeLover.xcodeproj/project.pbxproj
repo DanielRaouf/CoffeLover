@@ -18,6 +18,10 @@
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* CoffeeLoverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* CoffeeLoverTests.m */; };
 		77597A0533AC7D4FEF6CE8A6 /* libPods-CoffeeLover-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 773F2A0F1DE3EF69A083D1AA /* libPods-CoffeeLover-tvOS.a */; };
+		935DA269233C149200A570CA /* WebViewWithTextModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 935DA268233C149200A570CA /* WebViewWithTextModule.m */; };
+		935DA26E233C193200A570CA /* WebViewWithTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 935DA26C233C193200A570CA /* WebViewWithTextViewController.m */; };
+		935DA26F233C193200A570CA /* WebViewWithTextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 935DA26D233C193200A570CA /* WebViewWithTextViewController.xib */; };
+		935DA274233C1F9D00A570CA /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 935DA273233C1F9D00A570CA /* MainViewController.m */; };
 		9F799AF2A5300DA6F5443577 /* libPods-CoffeeLover-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE180DBE040AD1A234BA3B20 /* libPods-CoffeeLover-tvOSTests.a */; };
 		C15109A1D407A7CD49D8938C /* libPods-CoffeeLover.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0472DC036131DC73E73D9EFE /* libPods-CoffeeLover.a */; };
 /* End PBXBuildFile section */
@@ -59,6 +63,13 @@
 		46BAE11A667B5F52C1AC0A8C /* Pods-CoffeeLoverTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeeLoverTests.release.xcconfig"; path = "Target Support Files/Pods-CoffeeLoverTests/Pods-CoffeeLoverTests.release.xcconfig"; sourceTree = "<group>"; };
 		773F2A0F1DE3EF69A083D1AA /* libPods-CoffeeLover-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CoffeeLover-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E8DD8C531CECF474749C818 /* Pods-CoffeeLover.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeeLover.debug.xcconfig"; path = "Target Support Files/Pods-CoffeeLover/Pods-CoffeeLover.debug.xcconfig"; sourceTree = "<group>"; };
+		935DA267233C149200A570CA /* WebViewWithTextModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewWithTextModule.h; sourceTree = "<group>"; };
+		935DA268233C149200A570CA /* WebViewWithTextModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebViewWithTextModule.m; sourceTree = "<group>"; };
+		935DA26B233C193200A570CA /* WebViewWithTextViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewWithTextViewController.h; sourceTree = "<group>"; };
+		935DA26C233C193200A570CA /* WebViewWithTextViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebViewWithTextViewController.m; sourceTree = "<group>"; };
+		935DA26D233C193200A570CA /* WebViewWithTextViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebViewWithTextViewController.xib; sourceTree = "<group>"; };
+		935DA272233C1F9D00A570CA /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		935DA273233C1F9D00A570CA /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		B6DDE8981600EEF0112163E5 /* Pods-CoffeeLover-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeeLover-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-CoffeeLover-tvOSTests/Pods-CoffeeLover-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		BBE848221E30750F60741902 /* Pods-CoffeeLover-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeeLover-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-CoffeeLover-tvOS/Pods-CoffeeLover-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		D9D826B64AA7CDE98AA134E2 /* Pods-CoffeeLover-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeeLover-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-CoffeeLover-tvOSTests/Pods-CoffeeLover-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -125,6 +136,8 @@
 		13B07FAE1A68108700A75B9A /* CoffeeLover */ = {
 			isa = PBXGroup;
 			children = (
+				935DA26A233C190D00A570CA /* Controllers */,
+				935DA266233C144B00A570CA /* ReactModules */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -161,7 +174,6 @@
 				19083316CEC089F1D19C49FD /* Pods-CoffeeLoverTests.debug.xcconfig */,
 				46BAE11A667B5F52C1AC0A8C /* Pods-CoffeeLoverTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -196,6 +208,27 @@
 				2D02E4901E0B4A5D006451C7 /* CoffeeLover-tvOSTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		935DA266233C144B00A570CA /* ReactModules */ = {
+			isa = PBXGroup;
+			children = (
+				935DA267233C149200A570CA /* WebViewWithTextModule.h */,
+				935DA268233C149200A570CA /* WebViewWithTextModule.m */,
+			);
+			name = ReactModules;
+			sourceTree = "<group>";
+		};
+		935DA26A233C190D00A570CA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				935DA26B233C193200A570CA /* WebViewWithTextViewController.h */,
+				935DA26C233C193200A570CA /* WebViewWithTextViewController.m */,
+				935DA26D233C193200A570CA /* WebViewWithTextViewController.xib */,
+				935DA272233C1F9D00A570CA /* MainViewController.h */,
+				935DA273233C1F9D00A570CA /* MainViewController.m */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,6 +341,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -337,6 +371,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				935DA26F233C193200A570CA /* WebViewWithTextViewController.xib in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -528,8 +563,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				935DA269233C149200A570CA /* WebViewWithTextModule.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				935DA274233C1F9D00A570CA /* MainViewController.m in Sources */,
+				935DA26E233C193200A570CA /* WebViewWithTextViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
